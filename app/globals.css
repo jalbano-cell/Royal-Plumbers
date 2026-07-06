@@ -12,6 +12,7 @@
   --font-heading: var(--font-sans);
   --color-gold: var(--gold);
   --color-gold-foreground: var(--gold-foreground);
+  --color-gold-text: var(--gold-text);
   --color-royal: var(--royal);
   --color-royal-foreground: var(--royal-foreground);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -91,6 +92,8 @@
   --royal-foreground: #ffffff;
   --gold: #c9a227;
   --gold-foreground: #12305e;
+  /* Darker gold for text on light backgrounds — #c9a227 fails AA contrast as text */
+  --gold-text: #7a5f17;
 }
 
 .dark {

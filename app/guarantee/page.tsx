@@ -44,7 +44,7 @@ export default function GuaranteePage() {
     <>
       <section className="border-b border-border bg-secondary/30 py-16 lg:py-20">
         <Container className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-wide text-gold">Guarantee</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-gold-text">Guarantee</p>
           <h1 className="mt-3 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             Backed by a written guarantee, not just a promise
           </h1>

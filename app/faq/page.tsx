@@ -26,7 +26,7 @@ export default function FaqPage() {
 
       <section className="border-b border-border bg-secondary/30 py-16 lg:py-20">
         <Container className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-wide text-gold">FAQ</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-gold-text">FAQ</p>
           <h1 className="mt-3 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             Frequently asked questions
           </h1>

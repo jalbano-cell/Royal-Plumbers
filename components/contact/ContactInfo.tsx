@@ -5,7 +5,7 @@ export function ContactInfo() {
   return (
     <div className="space-y-6">
       <div className="rounded-2xl border border-border bg-card p-6">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-gold">Get in touch</h3>
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-gold-text">Get in touch</h3>
         <div className="mt-4 space-y-4 text-sm">
           <a href={siteConfig.phoneHref} className="flex items-center gap-3 text-foreground hover:text-primary">
             <Phone className="size-4 text-primary" />

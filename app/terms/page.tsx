@@ -13,7 +13,7 @@ export default function TermsPage() {
   return (
     <section className="py-16 lg:py-24">
       <Container className="max-w-2xl">
-        <p className="text-sm font-semibold uppercase tracking-wide text-gold">Legal</p>
+        <p className="text-sm font-semibold uppercase tracking-wide text-gold-text">Legal</p>
         <h1 className="mt-3 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
           Terms of Service
         </h1>

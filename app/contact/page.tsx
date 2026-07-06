@@ -15,7 +15,7 @@ export default function ContactPage() {
     <section className="py-16 lg:py-24">
       <Container>
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-wide text-gold">Contact</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-gold-text">Contact</p>
           <h1 className="mt-3 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             Book service or ask a question
           </h1>

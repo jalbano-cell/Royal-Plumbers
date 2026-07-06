@@ -26,7 +26,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-sm font-semibold uppercase tracking-wide text-gold">
+          <p className="text-sm font-semibold uppercase tracking-wide text-gold-text">
             Toronto &amp; the GTA · Since {siteConfig.foundedYear}
           </p>
           <h1 className="mt-4 text-5xl font-semibold tracking-tight text-foreground sm:text-6xl lg:text-7xl">

@@ -5,7 +5,7 @@ export function StorySection() {
   return (
     <section className="py-16 lg:py-24">
       <Container className="max-w-3xl">
-        <p className="text-sm font-semibold uppercase tracking-wide text-gold">Our story</p>
+        <p className="text-sm font-semibold uppercase tracking-wide text-gold-text">Our story</p>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
           Built in the GTA, on a simple idea
         </h2>

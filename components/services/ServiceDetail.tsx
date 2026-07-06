@@ -16,7 +16,7 @@ export function ServiceDetail({ service }: { service: Service }) {
         </div>
 
         <div className="rounded-2xl border border-border bg-card p-6">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-gold">
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-gold-text">
             Included with every visit
           </h3>
           <ul className="mt-4 space-y-3">
