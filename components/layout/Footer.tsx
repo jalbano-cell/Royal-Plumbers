@@ -7,6 +7,7 @@ import { regions, siteConfig } from "@/lib/site-config";
 
 const companyLinks = [
   { href: "/about", label: "About Us" },
+  { href: "/portfolio", label: "Our Work" },
   { href: "/reviews", label: "Reviews" },
   { href: "/guarantee", label: "Our Guarantee" },
   { href: "/faq", label: "FAQ" },

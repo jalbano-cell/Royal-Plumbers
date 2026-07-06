@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/shared/Container";
 import { StatsSection } from "@/components/about/StatsSection";
 import { StorySection } from "@/components/about/StorySection";
+import { TeamSection } from "@/components/about/TeamSection";
 import { ValuesSection } from "@/components/about/ValuesSection";
 import { FinalCta } from "@/components/home/FinalCta";
 import { pageMetadata } from "@/lib/seo";
@@ -31,6 +32,7 @@ export default function AboutPage() {
 
       <StatsSection />
       <StorySection />
+      <TeamSection />
       <ValuesSection />
       <FinalCta />
     </>

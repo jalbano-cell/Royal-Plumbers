@@ -21,7 +21,7 @@ export default function Home() {
       <TestimonialsCarousel />
       <ServiceAreasSection />
       <FaqAccordion />
-      <FinalCta />
+      <FinalCta showImage />
     </>
   );
 }

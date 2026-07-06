@@ -19,6 +19,7 @@ import { siteConfig } from "@/lib/site-config";
 const primaryLinks = [
   { href: "/about", label: "About" },
   { href: "/areas", label: "Service Areas" },
+  { href: "/portfolio", label: "Our Work" },
   { href: "/reviews", label: "Reviews" },
   { href: "/guarantee", label: "Guarantee" },
   { href: "/faq", label: "FAQ" },

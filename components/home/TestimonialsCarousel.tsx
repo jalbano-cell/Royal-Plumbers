@@ -8,7 +8,9 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
+import { AvatarImage } from "@/components/shared/AvatarImage";
 import { testimonials } from "@/lib/testimonials";
+import { getTestimonialAvatar } from "@/lib/images";
 
 export function TestimonialsCarousel() {
   return (
@@ -21,29 +23,41 @@ export function TestimonialsCarousel() {
           />
         </div>
 
+        {/* Each avatar's final headshot (filename, alt) is defined in
+            lib/images.ts (testimonialAvatars) — drop a real photo into
+            /public/images/testimonials/<filename> and flip status to
+            "final" there, no changes needed here. */}
         <Carousel className="mt-12" opts={{ align: "start", loop: true }}>
           <CarouselContent>
-            {testimonials.map((testimonial) => (
-              <CarouselItem key={testimonial.name} className="sm:basis-1/2 lg:basis-1/3">
-                <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-6">
-                  <Quote className="size-6 text-gold" />
-                  <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground">
-                    “{testimonial.quote}”
-                  </blockquote>
-                  <figcaption className="mt-6 text-sm">
-                    <span className="font-semibold text-foreground">{testimonial.name}</span>
-                    {testimonial.location ? (
-                      <span className="text-muted-foreground"> · {testimonial.location}</span>
-                    ) : null}
-                    {testimonial.service ? (
-                      <span className="mt-0.5 block text-xs text-muted-foreground">
-                        {testimonial.service}
-                      </span>
-                    ) : null}
-                  </figcaption>
-                </figure>
-              </CarouselItem>
-            ))}
+            {testimonials.map((testimonial) => {
+              const avatar = getTestimonialAvatar(testimonial.name);
+              return (
+                <CarouselItem key={testimonial.name} className="sm:basis-1/2 lg:basis-1/3">
+                  <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-6">
+                    <Quote className="size-6 text-gold" />
+                    <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground">
+                      “{testimonial.quote}”
+                    </blockquote>
+                    <figcaption className="mt-6 flex items-center gap-3">
+                      {avatar ? (
+                        <AvatarImage asset={avatar} name={testimonial.name} size={40} />
+                      ) : null}
+                      <div className="text-sm">
+                        <span className="block font-semibold text-foreground">
+                          {testimonial.name}
+                          {testimonial.location ? (
+                            <span className="font-normal text-muted-foreground"> · {testimonial.location}</span>
+                          ) : null}
+                        </span>
+                        {testimonial.service ? (
+                          <span className="text-xs text-muted-foreground">{testimonial.service}</span>
+                        ) : null}
+                      </div>
+                    </figcaption>
+                  </figure>
+                </CarouselItem>
+              );
+            })}
           </CarouselContent>
           <div className="mt-6 flex justify-center gap-2">
             <CarouselPrevious className="static translate-y-0" />

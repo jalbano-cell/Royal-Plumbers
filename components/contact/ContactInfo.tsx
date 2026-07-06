@@ -1,9 +1,16 @@
 import { Phone, MapPin, Clock, ShieldCheck } from "lucide-react";
+import { AssetImage } from "@/components/shared/AssetImage";
 import { siteConfig } from "@/lib/site-config";
+import { contactImage } from "@/lib/images";
 
 export function ContactInfo() {
   return (
     <div className="space-y-6">
+      {/* FINAL ASSET: contact-office.jpg — dispatcher answering the phone at
+          a bright office desk. Drop into /public/images/gallery/contact-office.jpg
+          and set status: "final" in lib/images.ts — no code changes needed. */}
+      <AssetImage asset={contactImage} className="rounded-2xl border border-border" />
+
       <div className="rounded-2xl border border-border bg-card p-6">
         <h3 className="text-sm font-semibold uppercase tracking-wide text-gold-text">Get in touch</h3>
         <div className="mt-4 space-y-4 text-sm">

@@ -3,7 +3,9 @@ import { Quote } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { RevealOnScroll } from "@/components/shared/RevealOnScroll";
 import { FinalCta } from "@/components/home/FinalCta";
+import { AvatarImage } from "@/components/shared/AvatarImage";
 import { testimonials } from "@/lib/testimonials";
+import { getTestimonialAvatar } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -30,27 +32,35 @@ export default function ReviewsPage() {
       <section className="py-16 lg:py-24">
         <Container>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((testimonial, index) => (
-              <RevealOnScroll key={testimonial.name} delay={(index % 3) * 0.05}>
-                <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-6">
-                  <Quote className="size-6 text-gold" />
-                  <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground">
-                    “{testimonial.quote}”
-                  </blockquote>
-                  <figcaption className="mt-6 text-sm">
-                    <span className="font-semibold text-foreground">{testimonial.name}</span>
-                    {testimonial.location ? (
-                      <span className="text-muted-foreground"> · {testimonial.location}</span>
-                    ) : null}
-                    {testimonial.service ? (
-                      <span className="mt-0.5 block text-xs text-muted-foreground">
-                        {testimonial.service}
-                      </span>
-                    ) : null}
-                  </figcaption>
-                </figure>
-              </RevealOnScroll>
-            ))}
+            {testimonials.map((testimonial, index) => {
+              const avatar = getTestimonialAvatar(testimonial.name);
+              return (
+                <RevealOnScroll key={testimonial.name} delay={(index % 3) * 0.05}>
+                  <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-6">
+                    <Quote className="size-6 text-gold" />
+                    <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground">
+                      “{testimonial.quote}”
+                    </blockquote>
+                    <figcaption className="mt-6 flex items-center gap-3">
+                      {avatar ? (
+                        <AvatarImage asset={avatar} name={testimonial.name} size={40} />
+                      ) : null}
+                      <div className="text-sm">
+                        <span className="block font-semibold text-foreground">
+                          {testimonial.name}
+                          {testimonial.location ? (
+                            <span className="font-normal text-muted-foreground"> · {testimonial.location}</span>
+                          ) : null}
+                        </span>
+                        {testimonial.service ? (
+                          <span className="text-xs text-muted-foreground">{testimonial.service}</span>
+                        ) : null}
+                      </div>
+                    </figcaption>
+                  </figure>
+                </RevealOnScroll>
+              );
+            })}
           </div>
         </Container>
       </section>

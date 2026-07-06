@@ -2,10 +2,14 @@ import Link from "next/link";
 import { Phone, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
+import { AssetImage } from "@/components/shared/AssetImage";
 import { siteConfig } from "@/lib/site-config";
+import { getServiceImage } from "@/lib/images";
 import type { Service } from "@/lib/services";
 
 export function ServiceHero({ service }: { service: Service }) {
+  const image = getServiceImage(service.slug);
+
   return (
     <section className="border-b border-border bg-secondary/30 py-16 lg:py-20">
       <Container>
@@ -17,8 +21,8 @@ export function ServiceHero({ service }: { service: Service }) {
           <span className="text-foreground">{service.name}</span>
         </nav>
 
-        <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
+        <div className="mt-8 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div>
             <span className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <service.icon className="size-6" />
             </span>
@@ -28,28 +32,37 @@ export function ServiceHero({ service }: { service: Service }) {
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               {service.summary}
             </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Button
+                size="lg"
+                className="h-12 px-6 text-base"
+                nativeButton={false}
+                render={<Link href="/contact">Book This Service</Link>}
+              />
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-12 px-6 text-base"
+                nativeButton={false}
+                render={
+                  <a href={siteConfig.phoneHref}>
+                    <Phone className="size-4" />
+                    {siteConfig.phone}
+                  </a>
+                }
+              />
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
-            <Button
-              size="lg"
-              className="h-12 px-6 text-base"
-              nativeButton={false}
-              render={<Link href="/contact">Book This Service</Link>}
+          {image ? (
+            <AssetImage
+              asset={image}
+              priority
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="rounded-3xl border border-border shadow-lg shadow-primary/5"
             />
-            <Button
-              size="lg"
-              variant="outline"
-              className="h-12 px-6 text-base"
-              nativeButton={false}
-              render={
-                <a href={siteConfig.phoneHref}>
-                  <Phone className="size-4" />
-                  {siteConfig.phone}
-                </a>
-              }
-            />
-          </div>
+          ) : null}
         </div>
       </Container>
     </section>

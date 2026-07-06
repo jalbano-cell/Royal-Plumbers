@@ -3,7 +3,9 @@ import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
 import { HeroStatsPanel } from "@/components/home/HeroStatsPanel";
+import { AssetImage } from "@/components/shared/AssetImage";
 import { siteConfig } from "@/lib/site-config";
+import { heroImage } from "@/lib/images";
 
 export function Hero() {
   return (
@@ -54,6 +56,19 @@ export function Hero() {
         </div>
 
         <HeroStatsPanel />
+      </Container>
+
+      <Container className="pb-20 lg:pb-28">
+        {/* FINAL ASSET: hero-plumber-working.jpg — licensed plumber repairing a
+            kitchen sink in a modern luxury home, interacting with the homeowner,
+            bright natural light. Drop the real photo into
+            /public/images/hero/hero-plumber-working.jpg and set status: "final"
+            in lib/images.ts — no code changes needed. */}
+        <AssetImage
+          asset={heroImage}
+          priority
+          className="rounded-3xl border border-border shadow-xl shadow-primary/10"
+        />
       </Container>
     </section>
   );
