@@ -91,6 +91,7 @@ export function MobileMenu() {
           <Button
             variant="outline"
             className="w-full"
+            nativeButton={false}
             render={
               <a href={siteConfig.phoneHref}>
                 <Phone className="size-4" />
@@ -100,6 +101,7 @@ export function MobileMenu() {
           />
           <Button
             className="w-full"
+            nativeButton={false}
             render={
               <Link href="/contact" onClick={() => setOpen(false)}>
                 Book Service

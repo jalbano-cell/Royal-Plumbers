@@ -84,6 +84,7 @@ export function Navbar() {
           <Button
             variant="outline"
             className="hidden sm:inline-flex"
+            nativeButton={false}
             render={
               <a href={siteConfig.phoneHref}>
                 <Phone className="size-4" />
@@ -92,6 +93,7 @@ export function Navbar() {
             }
           />
           <Button
+            nativeButton={false}
             render={<Link href="/contact">Book Service</Link>}
           />
           <MobileMenu />

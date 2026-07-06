@@ -16,6 +16,7 @@ export const siteConfig = {
     country: "CA",
   },
   yearsInBusiness: 20,
+  foundedYear: 2006,
   bookOnlineHref: "/contact",
   social: {
     google: undefined as string | undefined,
