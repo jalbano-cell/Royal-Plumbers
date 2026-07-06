@@ -1,11 +1,8 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
-import { AnimatedCounter } from "@/components/shared/AnimatedCounter";
+import { HeroStatsPanel } from "@/components/home/HeroStatsPanel";
 import { siteConfig } from "@/lib/site-config";
 
 export function Hero() {
@@ -21,11 +18,7 @@ export function Hero() {
       />
 
       <Container className="grid gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-28">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div>
           <p className="text-sm font-semibold uppercase tracking-wide text-gold-text">
             Toronto &amp; the GTA · Since {siteConfig.foundedYear}
           </p>
@@ -58,40 +51,9 @@ export function Hero() {
               }
             />
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="relative"
-        >
-          <div className="rounded-3xl border border-border bg-card/80 p-8 shadow-xl shadow-primary/5 backdrop-blur">
-            <p className="text-sm font-medium text-muted-foreground">Why GTA homeowners call us first</p>
-            <div className="mt-6 grid grid-cols-2 gap-6">
-              <div>
-                <p className="text-4xl font-semibold text-primary">
-                  <AnimatedCounter value={siteConfig.yearsInBusiness} suffix="+" />
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">Years in the GTA</p>
-              </div>
-              <div>
-                <p className="text-4xl font-semibold text-primary">
-                  <AnimatedCounter value={25} suffix="+" />
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">Communities served</p>
-              </div>
-              <div>
-                <p className="text-4xl font-semibold text-primary">24/7</p>
-                <p className="mt-1 text-sm text-muted-foreground">Emergency dispatch</p>
-              </div>
-              <div>
-                <p className="text-4xl font-semibold text-primary">$0</p>
-                <p className="mt-1 text-sm text-muted-foreground">Trip fee for estimates</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        <HeroStatsPanel />
       </Container>
     </section>
   );
