@@ -1,21 +1,29 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
 import { HeroStatsPanel } from "@/components/home/HeroStatsPanel";
-import { AssetImage } from "@/components/shared/AssetImage";
 import { siteConfig } from "@/lib/site-config";
-import { heroImage } from "@/lib/images";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
+      <div className="absolute inset-0 -z-20">
+        <Image
+          src="/images/hero/hero-plumber-working.jpg"
+          alt="Royal Plumbing technician fixing a pipe."
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(60% 50% at 85% 10%, color-mix(in oklch, var(--gold), transparent 85%), transparent), radial-gradient(70% 60% at 10% 0%, color-mix(in oklch, var(--primary), transparent 88%), transparent)",
+            "linear-gradient(90deg, var(--background) 0%, var(--background) 42%, color-mix(in oklch, var(--background), transparent 25%) 62%, color-mix(in oklch, var(--background), transparent 70%) 100%)",
         }}
       />
 
@@ -56,19 +64,6 @@ export function Hero() {
         </div>
 
         <HeroStatsPanel />
-      </Container>
-
-      <Container className="pb-20 lg:pb-28">
-        {/* FINAL ASSET: hero-plumber-working.jpg — licensed plumber repairing a
-            kitchen sink in a modern luxury home, interacting with the homeowner,
-            bright natural light. Drop the real photo into
-            /public/images/hero/hero-plumber-working.jpg and set status: "final"
-            in lib/images.ts — no code changes needed. */}
-        <AssetImage
-          asset={heroImage}
-          priority
-          className="rounded-3xl border border-border shadow-xl shadow-primary/10"
-        />
       </Container>
     </section>
   );

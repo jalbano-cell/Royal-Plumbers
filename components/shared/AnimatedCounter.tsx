@@ -17,10 +17,15 @@ export function AnimatedCounter({
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const shouldReduceMotion = useReducedMotion();
-  const [display, setDisplay] = useState(shouldReduceMotion ? value : 0);
+  const [display, setDisplay] = useState(0);
 
   useEffect(() => {
-    if (!isInView || shouldReduceMotion) return;
+    if (!isInView) return;
+
+    if (shouldReduceMotion) {
+      const frame = requestAnimationFrame(() => setDisplay(value));
+      return () => cancelAnimationFrame(frame);
+    }
 
     const start = performance.now();
     let frame: number;

@@ -63,15 +63,14 @@ function path(asset: Pick<ImageAsset, "folder" | "filename">) {
 export const heroImage: ImageAsset = {
   id: "hero-plumber-working",
   section: "Hero",
-  purpose: "Primary hero visual establishing trust and professionalism above the fold.",
-  subject:
-    "Licensed plumber repairing a kitchen sink inside a modern luxury home while interacting with the homeowner, bright natural lighting.",
+  purpose: "Full-bleed background photo behind the hero copy. Rendered directly in Hero.tsx via next/image (not through AssetImage, since it's a background fill rather than a fixed-aspect box).",
+  subject: "Close-up of a plumber's hands fixing a pipe fitting. Stock photo (Pexels, Anıl Karakaya) — swap for real branded photography when available.",
   aspectRatio: "16:9",
   recommendedResolution: "1920x1080",
   folder: "hero",
   filename: "hero-plumber-working.jpg",
-  alt: "Licensed Royal Plumbing technician repairing a kitchen sink while talking with the homeowner.",
-  status: "placeholder",
+  alt: "Royal Plumbing technician fixing a pipe.",
+  status: "final",
   icon: Droplet,
   tone: "primary",
 };

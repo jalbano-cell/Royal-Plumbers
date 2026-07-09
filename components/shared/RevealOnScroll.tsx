@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 
 export function RevealOnScroll({
@@ -13,10 +14,16 @@ export function RevealOnScroll({
   className?: string;
   y?: number;
 }) {
-  const shouldReduceMotion = useReducedMotion();
+  const prefersReducedMotion = useReducedMotion();
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setReduceMotion(!!prefersReducedMotion));
+    return () => cancelAnimationFrame(frame);
+  }, [prefersReducedMotion]);
 
   const variants: Variants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : y },
+    hidden: { opacity: 0, y: reduceMotion ? 0 : y },
     visible: {
       opacity: 1,
       y: 0,
